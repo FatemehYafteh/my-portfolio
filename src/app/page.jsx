@@ -1,38 +1,42 @@
+import MouseEffect from "@/components/MouseEffect";
+import Link from "next/link";
+import Head from "next/head";
 
-import MouseEffect from "@/components/MouseEffect"
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#0a192f] text-[#ccd6f6] overflow-hidden">
-  <MouseEffect />
+    <>
+      <Head>
+        <title>Fatemeh - Front-end Developer</title>
+        <meta
+          name="description"
+          content="Hi, I'm Fatemeh, a front-end developer focused on React, Next.js, and Tailwind CSS. I create clean and user-friendly web applications."
+        />
+      </Head>
+      <div className="section relative overflow-hidden">
+        <MouseEffect />
+        {/* Main content */}
+        <div className="text-center px-4">
+          <h1 className="heading transform-cpu effect">Fatemeh Yafteh</h1>
 
-      {/* Main content */}
-      <div className="z-10 text-center px-4">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">
-          Hi, I&apos;m Fatemeh
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-xl mx-auto">
-          A frontend developer and UI designer passionate about creating modern and engaging digital experiences.
+          <p className="subheading mb-4">
+            {/* A frontend developer and UI designer passionate about creating
+            modern and engaging digital experiences. */}
+
+            I am a front-end developer passionate about building clean, accessible, and visually refined web applications using React, Next.js, and Tailwind CSS.
+          </p>
+          <p className="subheading mb-6">
+          Explore my projects and skills, and feel free to get in touch!
         </p>
-
-        <div className="flex justify-center gap-6">
-          <a
-            href="#portfolio"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-500 transition"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition"
-          >
-            Contact Me
-          </a>
+          <div className="flex justify-center gap-6">
+            <Link href="/projects" className="btn-primary">
+              View Projects
+            </Link>
+            <Link href="/about" className="btn-outline">
+              Contact Me
+            </Link>
+          </div>
         </div>
       </div>
-
-      {/* Decorative background shapes */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-700 opacity-20 rounded-full blur-3xl"></div>
-      <div className="absolute top-0 left-0 w-72 h-72 bg-pink-600 opacity-20 rounded-full blur-3xl"></div>
-    </div>
+    </>
   );
 }

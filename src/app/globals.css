@@ -1,16 +1,115 @@
-@import "tailwindcss";
+@import "../css/tailwind.css";
 
+/* ---------------- 🎨 پالت رنگ ---------------- */
+@theme {
+  --color-background: #0a192f;
+  --color-background-light: #112240;
+  --color-background-lighter: #1a2e4a;
+  --color-background-dark: #020c1b;
 
+  --color-text-primary: #ccd6f6;
+  --color-text-secondary: #8892b0;
+  --color-text-dim: #a8b2d1;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: #64ffda;
+  --color-accent-hover: #52e0c4;
+  --color-accent-subtle: #133040;
+
+  --color-pink-glow: #ff007f;
+  --color-pink-soft: #ff66b3;
+
+  --color-blue-deep: #0a192f;
+  --color-blue-mid: #112240;
+  --color-blue-soft: #233554;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------- 🌙 استایل‌های پایه ---------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  a {
+    @apply transition-colors duration-300;
+  }
 }
+
+/* ---------------- 💎 کلاس‌های utility سفارشی ---------------- */
+@layer utilities {
+  /* پس‌زمینه */
+  .bg-background { background-color: var(--color-background); }
+  .bg-background-light { background-color: var(--color-background-light); }
+  .bg-background-lighter { background-color: var(--color-background-lighter); }
+  .bg-background-dark { background-color: var(--color-background-dark); }
+
+  /* متن */
+  .text-primary { color: var(--color-text-primary); }
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-dim { color: var(--color-text-dim); }
+
+  /* کادر / border */
+  .border-accent { border-color: var(--color-accent); }
+
+  /* افکت hover */
+  .hover-bg-accent:hover { background-color: var(--color-accent); }
+  .hover-bg-accent-hover:hover { background-color: var(--color-accent-hover); }
+  .hover-border-accent-hover:hover { border-color: var(--color-accent-hover); }
+
+  /* دکمه‌ها */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-semibold shadow-lg;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-semibold border;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+  }
+
+  /* کارت‌ها */
+  .card {
+    @apply rounded-2xl p-6 shadow-lg transition ;
+    background-color: var(--color-background-light);
+  }
+  .card:hover {
+    background-color: var(--color-background-lighter);
+    color: var(--color-accent);
+  }
+
+  /* سکشن اصلی */
+  .section {
+    @apply relative mt-32 flex flex-col items-center justify-center ;
+    background-color: var(--color-background);
+    /* color: var(--color-text-primary); */
+  }
+
+  /* تیترها */
+  .heading {
+    @apply text-5xl md:text-6xl font-bold hover:text-accent;
+    /* color: var(--color-primary); */
+  }
+
+  .subheading {
+    @apply text-xl md:text-2xl max-w-xl mx-auto;
+    color: var(--color-text-secondary);
+  }
+}
+.effect {
+  @apply transition-transform duration-300 hover:ease-out hover:scale-103 hover:text-accent;
+}
+
