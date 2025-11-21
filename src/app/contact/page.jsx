@@ -16,7 +16,7 @@ export default function Contact() {
       id: 2,
       type: "LinkedIn",
       value: "linkedin.com/in/fatemeh-yafteh",
-      link: "https://www.linkedin.com/in/fatemeh",
+      link: "https://www.linkedin.com/in/fatemeh-yafteh",
       icon:  <LuLinkedin />,
     },
     {
