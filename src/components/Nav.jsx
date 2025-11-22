@@ -12,7 +12,6 @@ export default function Nav() {
     { name: "Contact", href: "/contact" },
   ];
 
-  // prevent background scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.documentElement.style.overflow = "hidden";
@@ -24,7 +23,6 @@ export default function Nav() {
     };
   }, [isOpen]);
 
-  // close on escape
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") setIsOpen(false);
@@ -72,17 +70,19 @@ export default function Nav() {
       {/* Mobile Menu */}
       {isOpen && (
         <div id="mobile-menu" role="dialog" aria-modal="true" className="md:hidden">
+          {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/40"
+            className="fixed inset-0 bg-black/40 z-40"
             onClick={() => setIsOpen(false)}
             aria-hidden="true"
           />
-          <ul className="relative bg-[--color-background] text-center pb-4 z-50">
+          {/* Menu */}
+          <ul className="fixed inset-x-0 top-0 bg-[--color-background] text-center pb-4 z-50">
             {navItems.map((item) => (
-              <li key={item.name} className="py-3">
+              <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-[--color-text-primary] hover:text-accent transition font-medium text-lg"
+                  className="block w-full py-3 text-[--color-text-primary] hover:text-accent transition font-medium text-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
