@@ -66,32 +66,40 @@ export default function Nav() {
           {isOpen ? "✖" : "☰"}
         </button>
       </div>
+     {/* Mobile Menu */}
+{isOpen && (
+  <div id="mobile-menu" role="dialog" aria-modal="true" className="md:hidden">
+    {/* Overlay */}
+    <div
+      className="fixed inset-0  backdrop-blur-md bg-black/20 z-40"
+      onClick={() => setIsOpen(false)}
+      aria-hidden="true"
+    />
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div id="mobile-menu" role="dialog" aria-modal="true" className="md:hidden">
-          {/* Overlay */}
-          <div
-            className="fixed inset-0 bg-black/40 z-40"
+    {/* Menu */}
+    <ul
+      className="
+        absolute top-[4.5rem] left-0 right-0 
+        bg-[--color-background] 
+        text-center pb-4 z-50 shadow-xl
+        animate-slideDown
+      "
+    >
+      {navItems.map((item) => (
+        <li key={item.name}>
+          <Link
+            href={item.href}
+            className="block w-full py-3 text-[--color-text-primary] hover:text-accent transition font-medium text-lg"
             onClick={() => setIsOpen(false)}
-            aria-hidden="true"
-          />
-          {/* Menu */}
-          <ul className="fixed inset-x-0 top-0 bg-[--color-background] text-center pb-4 z-50">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  className="block w-full py-3 text-[--color-text-primary] hover:text-accent transition font-medium text-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+          >
+            {item.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
     </nav>
   );
 }
