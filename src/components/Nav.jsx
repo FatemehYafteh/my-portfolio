@@ -33,7 +33,7 @@ export default function Nav() {
 
   return (
     <nav
-      className="fixed top-0 left-0 w-full z-50 bg-background/10 shadow-[0_1px_15px_rgba(255,255,255,0.1)] backdrop-blur-sm"
+      className="fixed top-0 left-0 w-full z-20 bg-background/30 backdrop-blur-sm shadow-[0_1px_15px_rgba(255,255,255,0.1)]"
       aria-label="Primary navigation"
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -71,7 +71,7 @@ export default function Nav() {
   <div id="mobile-menu" role="dialog" aria-modal="true" className="md:hidden">
     {/* Overlay */}
     <div
-      className="fixed inset-0  backdrop-blur-md bg-black/20 z-40"
+      className="fixed inset-0 backdrop-blur-3xl bg-black/40 z-40"
       onClick={() => setIsOpen(false)}
       aria-hidden="true"
     />
